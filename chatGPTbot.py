@@ -1,11 +1,11 @@
 import openai
-import telebot
+import keys
 
-openai.api_key = "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"
-bot = telebot.TeleBot("5965873984:AAF2niWb88VUhNJus-Ry0bNUw1RXNVJmyaQ")
+api_key = keys.openai.api_key
+bot_api = keys.bot
 
 
-@bot.message_handler(func=lambda message: True)
+@bot_api.message_handler(func=lambda message: True)
 def handle_message(message):
     response = openai.Completion.create(
         model="text-davinci-003",
@@ -18,8 +18,8 @@ def handle_message(message):
         stop=[" Human:", " AI:"]
     )
     print(message)
-    bot.send_message(chat_id=message.from_user.id, text=response["choices"][0]["text"])
+    bot_api.send_message(chat_id=message.from_user.id, text=response["choices"][0]["text"])
 
 
-bot.polling()
+bot_api.polling()
 
