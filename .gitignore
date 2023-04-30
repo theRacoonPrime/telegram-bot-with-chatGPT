@@ -73,7 +73,7 @@ docs/_build/
 
 # PyBuilder
 target/
-
+keys.py
 # Jupyter Notebook
 .ipynb_checkpoints
 
@@ -109,7 +109,10 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-keys.py
+
+pyvenv.cfg
+bin
+
 
 # User-specific stuff
 .idea/**/workspace.xml
